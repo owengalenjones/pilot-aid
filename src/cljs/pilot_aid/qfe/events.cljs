@@ -19,9 +19,19 @@
    (assoc db :qfe/p0 v)))
 
 (rf/reg-event-db
+ :qfe/set-p0-in
+ (fn-traced [db [_ v]]
+   (assoc db :qfe/p0-in v)))
+
+(rf/reg-event-db
  :qfe/set-p1
  (fn-traced [db [_ v]]
    (assoc db :qfe/p1 v)))
+
+(rf/reg-event-db
+ :qfe/set-p1-out
+ (fn-traced [db [_ v]]
+   (assoc db :qfe/p1-out v)))
 
 (rf/reg-event-db
  :qfe/set-h0
