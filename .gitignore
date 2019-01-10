@@ -4,3 +4,4 @@
 /resources/public/js/compiled
 out
 .rebel_readline_history
+figwheel_server_log
