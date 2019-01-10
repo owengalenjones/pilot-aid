@@ -16,6 +16,10 @@
   [x]
   (* x  0.0295301))
 
+(defn two-decimals
+  [x]
+  (gstring/format "%.2f" x))
+
 (rf/reg-sub
   :qfe/p0
   (fn [db _]
@@ -67,10 +71,10 @@
       (and (string? p1)
            (empty? p1)) default-val
       (.isNaN js/Number p1) math-error
-      (= out :hpa) (gstring/format "%.2f" p1)
-      (= out :hg) (->> p1
-                       hpa->hg
-                       (gstring/format "%.2f")))))
+      (= out :hpa) (two-decimals p1)
+      (= out :hg) (-> p1
+                      hpa->hg
+                      two-decimals))))
 
 (rf/reg-sub
   :qfe/p1-out
@@ -110,13 +114,9 @@
   "P1 = P0 * (1 - (0.0065 * (h1 - h0)) / 237.15 + T)  ^ 5.255"
   [p0 h0 h1 t p0-in]
   (* p0
-     (Math/pow (- 1
-                  (/ (* 0.0065
-                        (- h1
-                           h0))
-                     (+ 237.15
-                        t)))
-               5.255)))
+     (Math/pow (- 1 (/ (* 0.0065
+                        (- h1 h0))
+                     (+ 237.15 t))) 5.255)))
 
 (rf/reg-sub
   :qfe/p1
@@ -128,6 +128,6 @@
      (rf/subscribe [:qfe/p0-in])])
 
   (fn [v]
-    (if (some empty? (filter seq? v))
+    (if (some empty? (remove keyword? v))
       default-val
       (apply calculate v))))

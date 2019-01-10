@@ -47,8 +47,3 @@
  :qfe/set-t
  (fn-traced [db [_ v]]
    (assoc db :qfe/t v)))
-
-(rf/reg-event-db
-  :qfe/calculate
-  (fn-traced [db _]
-             ))

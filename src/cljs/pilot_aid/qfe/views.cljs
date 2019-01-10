@@ -77,6 +77,3 @@
       " "
       [:div.btn-group
        [:button.btn.btn-danger {:type "button" :on-click #(rf/dispatch [:qfe/reset])} "Reset"]]]]])
-
-
-; P1 = P0 * (1 - (0.0065 * (h1 - h0)) / 237.15 + T)  ^ 5.255
