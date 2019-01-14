@@ -4,7 +4,9 @@
             [pilot-aid.events :as events]
             [pilot-aid.routes :as routes]
             [pilot-aid.views :as views]
-            [pilot-aid.config :as config]))
+            [pilot-aid.config :as config]
+            [$]
+            [bootstrap]))
 
 
 (defn dev-setup

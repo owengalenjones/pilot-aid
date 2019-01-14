@@ -41,18 +41,28 @@
                     :output-dir           "resources/public/js/compiled/out"
                     :asset-path           "js/compiled/out"
                     :source-map-timestamp true
+                    :infer-externs true
+                    :npm-deps false
+                    :foreign-libs [{:file "dist/index_bundle.js"
+                                    :provides ["$" "bootstrap"]
+                                    :global-exports {$ $ bootstrap bootstrap}}]
                     :preloads             [devtools.preload
                                            day8.re-frame-10x.preload]
                     :closure-defines      {"re_frame.trace.trace_enabled_QMARK_" true
                                            "day8.re_frame.tracing.trace_enabled_QMARK_" true}
-                    :external-config      {:devtools/config {:features-to-install :all}}
-                    }}
+                    :external-config      {:devtools/config {:features-to-install :all}}}}
 
     {:id           "min"
      :source-paths ["src/cljs"]
      :compiler     {:main            pilot-aid.core
                     :output-to       "resources/public/js/compiled/app.js"
                     :optimizations   :advanced
+
+                    :infer-externs true
+                    :npm-deps false
+                    :foreign-libs [{:file "dist/index_bundle.js"
+                                    :provides ["$" "bootstrap"]
+                                    :global-exports {$ $ bootstrap bootstrap}}]
                     :closure-defines {goog.DEBUG false}
                     :pretty-print    false}}
 
@@ -61,6 +71,12 @@
      :compiler     {:main          pilot-aid.runner
                     :output-to     "resources/public/js/compiled/test.js"
                     :output-dir    "resources/public/js/compiled/test/out"
+
+                    :infer-externs true
+                    :npm-deps false
+                    :foreign-libs [{:file "dist/index_bundle.js"
+                                    :provides ["$" "bootstrap"]
+                                    :global-exports {$ $ bootstrap bootstrap}}]
                     :optimizations :none}}
     ]}
   )
