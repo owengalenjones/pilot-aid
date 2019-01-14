@@ -3,11 +3,6 @@
             [pilot-aid.qfe.subs]))
 
 (re-frame/reg-sub
- ::name
- (fn [db]
-   (:name db)))
-
-(re-frame/reg-sub
- ::active-panel
- (fn [db _]
-   (:active-panel db)))
+  ::active-panel
+  (fn [db _]
+    (:active-panel db)))

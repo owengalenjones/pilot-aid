@@ -74,6 +74,6 @@
         [:a.dropdown-item {:href "#" :on-click #(do (.preventDefault %)
                                                     (rf/dispatch [:qfe/set-p1-out :hg]))} "hg"]]]]
 
-      " "
-      [:div.btn-group
-       [:button.btn.btn-danger {:type "button" :on-click #(rf/dispatch [:qfe/reset])} "Reset"]]]]])
+     " "
+     [:div.btn-group
+      [:button.btn.btn-danger {:type "button" :on-click #(rf/dispatch [:qfe/reset])} "Reset"]]]]])

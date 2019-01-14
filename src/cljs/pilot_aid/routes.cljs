@@ -20,8 +20,7 @@
   ;; --------------------
   ;; define routes here
   (defroute "/" []
-    (re-frame/dispatch [::events/set-active-panel :home-panel])
-    )
+    (re-frame/dispatch [::events/set-active-panel :home-panel]))
 
   (defroute "/qfe" []
     (re-frame/dispatch [::events/set-active-panel :qfe-panel]))

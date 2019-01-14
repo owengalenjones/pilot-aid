@@ -35,7 +35,7 @@
   (fn [[p0 in]]
     (case in
       :hpa p0
-      :hg (hg->hpa p0))))
+      :hg (str (hg->hpa p0)))))
 
 (rf/reg-sub
   :qfe/p0-in
@@ -52,12 +52,6 @@
     (case in
       :hpa "hPa | mBar"
       :hg "hg")))
-
-(rf/reg-sub
-  :qfe/p1
-  (fn [db _]
-    (or (:qfe/p1 db)
-        default-val)))
 
 (rf/reg-sub
   :qfe/p1-out-format
@@ -115,8 +109,8 @@
   [p0 h0 h1 t p0-in]
   (* p0
      (Math/pow (- 1 (/ (* 0.0065
-                        (- h1 h0))
-                     (+ 237.15 t))) 5.255)))
+                          (- h1 h0))
+                       (+ 237.15 t))) 5.255)))
 
 (rf/reg-sub
   :qfe/p1

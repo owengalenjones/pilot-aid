@@ -28,5 +28,7 @@
 (defn main-panel []
   (let [active-panel (re-frame/subscribe [::subs/active-panel])]
     [:div.container
-     [header]
-     [show-panel @active-panel]]))
+     ;[header]
+     ;[show-panel @active-panel]
+     [show-panel :qfe-panel] ; just qfe for now!
+     ]))
