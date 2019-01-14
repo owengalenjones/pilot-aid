@@ -5,8 +5,12 @@
   "repository": "git@gitlab.com:owenjones/pilot-aid.git",
   "author": "Owen Jones <owengalenjones@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "publish": "node scripts/publish.js"
+  },
   "devDependencies": {
     "exports-loader": "^0.7.0",
+    "gh-pages": "^2.0.1",
     "webpack": "^4.28.1",
     "webpack-cli": "^3.2.1"
   },
