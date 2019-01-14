@@ -1,7 +1,5 @@
 #!/bin/bash
 
-echo $( pwd )
-
 if [ -f "project.clj" ]; then
   echo "Installing lein deps..."
   lein deps
@@ -16,3 +14,5 @@ if [ -f "src/js/index.js" ]; then
   echo "Building webpack..."
   yarn webpack
 fi
+
+echo "Done!"
